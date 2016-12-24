@@ -136,3 +136,15 @@ $(window).on('scroll', function () {
         $('.header_mobile').removeClass('show');
     }
 });
+
+if($('.gallery-preview-block')){
+    $('.gallery-preview-block .item').each(function () {
+        var self = $(this);
+        var container = self.find('.pic-container');
+        var url = self.find('.pic').attr('src');
+        container.css({
+            backgroundImage: "url("+ url +")"
+        });
+        self.find('.pic').remove();
+    });
+}

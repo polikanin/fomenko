@@ -1,0 +1,128 @@
+.gallery-page{
+  &-block{
+    text-align: center;
+    padding: 0 0 32px 0;
+
+    @media (max-width: $width-md){
+      padding: 100px 0 32px 0;
+    }
+
+    .heading{
+      text-align: center;
+
+      &:after{
+        content: '';
+        display: block;
+        margin: 28px auto 52px auto;
+        width: 80px;
+        height: 1px;
+        background-color: $black;
+      }
+    }
+
+    .pic{
+      display: block;
+      margin: 0 auto 30px auto;
+      max-width: 912px;
+      width: 100%;
+      box-shadow: 0 6px 18px rgba(185, 180, 166, 0.5);
+
+      &_general{
+        max-width: 100%;
+      }
+    }
+
+    .text{
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 25px;
+      max-width: 793px;
+      margin: 41px auto 45px auto;
+      text-align: left;
+      color: $brown;
+
+      @media (max-width: $width-sm){
+        text-align: center;
+      }
+    }
+
+    .back{
+      font-size: 16px;
+      font-weight: 300;
+      padding-bottom: 3px;
+      color: $black;
+      border-bottom: 1px solid $black;
+      display: inline-block;
+      margin: 47px 0 0 0;
+    }
+  }
+
+  .gallery-navigation{
+    padding: 44px 0;
+    background-color: $grey;
+
+    .items{
+      @include flex-box();
+      @include flex-wrap(wrap);
+      @include justify-content(center);
+      margin: 0 auto;
+    }
+
+    .item{
+      margin: 0 12px;
+      width: 50%;
+      max-width: 384px;
+      color: $black;
+      @include flex-box();
+      @include justify-content(space-between);
+
+      @media (max-width: 850px){
+        max-width: 100%;
+        margin: 0 auto;
+        width: auto;
+      }
+
+      &_left{
+        text-align: right;
+      }
+
+      &_right{
+        text-align: left;
+      }
+
+      &-heading{
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 24px;
+        margin: 17px 0 36px 0;
+
+        span{
+          display: block;
+        }
+
+        @media (max-width: 850px){
+          //display: none;
+          margin: 0 0 15px 0;
+        }
+      }
+
+      .preview-pic{
+        display: block;
+        max-width: 208px;
+
+        @media (max-width: 850px){
+          display: none;
+        }
+      }
+
+      .back-link{
+        display: inline-block;
+        width: auto;
+
+        @media (max-width: $width-xs){
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

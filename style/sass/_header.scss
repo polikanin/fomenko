@@ -1,6 +1,7 @@
 .header{
   padding: 46px 0 13px 0;
   color: $black;
+  box-shadow: 0 6px 10px rgba(185, 180, 166, 0.2);
 
   @media (max-width: $width-md){
     display: none;
@@ -133,7 +134,7 @@
     left: 0;
     z-index: 100;
     background-color: $grey;
-    box-shadow: 0 6px 10px rgba(185, 180, 166, 0.2);
+
     transform: translateY(-120%);
     -webkit-transform: translateY(-120%);
     @include transition();
