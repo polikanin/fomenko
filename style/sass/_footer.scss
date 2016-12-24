@@ -1,0 +1,82 @@
+.footer{
+  color: $black;
+  font-weight: 300;
+  padding: 68px 0 38px 0;
+  background-color: $grey;
+  box-shadow: 0 -2px 14px rgba(185, 180, 166, 0.4);
+
+  @media (max-width: $width-sm){
+    padding: 40px 0;
+  }
+
+  .container{
+    @include flex-box();
+    @include justify-content(space-between);
+
+    @media (max-width: $width-sm){
+      @include flex-wrap(wrap);
+      @include justify-content(center);
+      text-align: center;
+    }
+  }
+
+  .logo{
+    &-text{
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    &-name{
+      font-size: 22px;
+    }
+
+    @media (max-width: $width-sm){
+      width: 100%;
+    }
+  }
+
+  .social{
+    text-align: center;
+    margin-bottom: 8px;
+
+    a{
+      margin: 0 7px;
+    }
+
+    @media (max-width: $width-sm){
+      margin: 15px 0 10px 0;
+    }
+  }
+
+  .mail{
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    @include transition();
+
+    &:hover{
+      color: $red;
+      border-bottom-color: $red;
+    }
+  }
+
+  .address{
+    text-align: right;
+    padding: 2px 0 0 0;
+
+    @media (max-width: $width-sm){
+      width: 100%;
+      text-align: center;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    p{
+      font-size: 14px;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+  }
+}

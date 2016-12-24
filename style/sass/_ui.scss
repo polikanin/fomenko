@@ -1,0 +1,146 @@
+.logo{
+
+}
+
+.input{
+  width: 306px;
+  height: 66px;
+  border: 1px solid #ccc6aa;
+  color: #ccc6aa;
+  font-size: 30px;
+  font-weight: 300;
+  text-align: center;
+  &::-webkit-input-placeholder {color:#ccc6aa;}
+  &::-moz-placeholder          {color:#ccc6aa;}
+  &:-moz-placeholder           {color:#ccc6aa;}
+  &:-ms-input-placeholder      {color:#ccc6aa;}
+  @include transition();
+
+  &:hover,
+  &:focus{
+    background-color: white;
+    box-shadow: 0 0 10px rgba(185, 180, 166, 0.5);
+    color: $black;
+  }
+
+  &:focus{
+    &::-webkit-input-placeholder {color: $black;}
+    &::-moz-placeholder          {color: $black;}
+    &:-moz-placeholder           {color: $black;}
+    &:-ms-input-placeholder      {color: $black;}
+  }
+
+  &_error{
+
+  }
+}
+
+.btn{
+  display: block;
+  font-size: 15px;
+  font-weight: 300;
+  width: 148px;
+  height: 46px;
+  color: $black;
+  background-color: #ccc39b;
+  @include transition();
+
+  &_red{
+    color: $red;
+    background-color: white;
+    border: 1px solid $red;
+  }
+
+  &:hover{
+    color: white;
+    background-color: $red;
+    border: 1px solid $red;
+  }
+}
+
+.slider-btn{
+  width: 48px;
+  height: 78px;
+  background-color: rgba(64, 50, 26, 0.2);
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 39px);
+  @include transition();
+  @include img-hover();
+
+  &:hover{
+    background-color: rgba(64, 50, 26, 0.8);
+  }
+
+  img{
+    @include centered();
+
+    &:nth-of-type(2){
+      @include centered();
+    }
+  }
+
+  &_next{
+    right: 0;
+  }
+
+  &_prev{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    left: 0;
+  }
+}
+
+.go-to{
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding-left: 41px;
+
+  span{
+    border-bottom: 1px solid #fc6969;
+    padding-bottom: 3px;
+    display: inline-block;
+    color: $black;
+    font-size: 14px;
+    font-weight: 300;
+    @include transition();
+  }
+
+  &:hover{
+    span{
+      color: #fc6969;
+      border-bottom-color: transparent;
+    }
+  }
+
+  &:before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 28px;
+    top: calc(50% - 14px);
+    left: 0;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &_wedding{
+    &:before{
+      background-image: url("../image/ui/heart.png");
+    }
+  }
+
+  &_corporate{
+    &:before{
+      background-image: url("../image/ui/coctail.png");
+    }
+  }
+
+  &_anniversary{
+    &:before{
+      background-image: url("../image/ui/glass.png");
+    }
+  }
+}

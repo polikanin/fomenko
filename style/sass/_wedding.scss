@@ -1,0 +1,88 @@
+.wedding-page{
+  .about{
+    .heading{
+      &:after{
+        content: '';
+        display: block;
+        width: 59px;
+        height: 37px;
+        background-repeat: no-repeat;
+        background-image: url("../image/wedding/heart.png");
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+
+  .grey-block{
+    padding: 30px 0 75px 0;
+  }
+
+  .fun{
+    padding: 110px 0 58px 0;
+
+    @media (max-width: $width-sm){
+      padding: 40px 0;
+    }
+
+    .heading{
+      text-align: center;
+    }
+
+    .items{
+      margin-top: 42px;
+      @include flex-box();
+      @include justify-content(space-between);
+      @include flex-wrap(wrap);
+
+      @media (max-width: $width-sm){
+        margin-top: 30px;
+      }
+    }
+
+    .text{
+      width: 48.5%;
+
+      @media (max-width: $width-sm){
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .banner{
+    background-image: url("../image/wedding/banner.png");
+    padding: 314px 0 65px 0;
+
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 1;
+      background-image: linear-gradient(to top, rgba(77, 77, 66, 0.84) 0%, rgba(77, 77, 66, 0.84) 0%, rgba(255, 255, 255, 0) 100%, rgba(255, 255, 255, 0.48) 100%, white 100%);
+      height: 52%;
+      pointer-events: none;
+    }
+
+    .heading{
+      color: white;
+      margin-left: 78px;
+
+      &:before{
+        width: 80px;
+        background-color: white;
+        top: 26px;
+      }
+    }
+
+    .text{
+      color: white;
+      max-width: 450px;
+      width: 100%;
+      margin: 18px 0 0 39px;
+    }
+  }
+}
