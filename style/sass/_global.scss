@@ -526,6 +526,10 @@ button{
 .default-block{
   padding: 73px 0 67px 0;
 
+  @media (max-width: $width-sm){
+    padding: 40px 0;
+  }
+
   .heading{
     text-align: center;
 
