@@ -1,0 +1,56 @@
+.contacts{
+  &-head{
+    color: #fefefe;
+    padding: 292px 0 90px 0;
+
+    @media (max-width: $width-sm){
+      padding: 120px 0 40px 0;
+      text-align: center;
+    }
+
+    .container{
+      max-width: 400px;
+      margin: 0 0 0 77px;
+
+      @media (max-width: $width-sm){
+        margin: 0 0 0 0;
+        max-width: 100%;
+      }
+    }
+
+    .heading{
+      color: #fefefe;
+      margin-bottom: 25px;
+
+      &:before{
+        width: 80px;
+        top: 24px;
+        background-color: #fefefe;
+      }
+    }
+
+    .phone{
+      display: block;
+      font-size: 25px;
+      font-weight: 300;
+    }
+
+    .mail{
+      display: block;
+      font-size: 20px;
+      font-weight: 300;
+      margin: 4px 0 32px 0;
+
+      @media (max-width: $width-sm){
+        margin: 5px 0 20px 0;
+      }
+    }
+
+    .text{
+      color: white;
+      font-size: 25px;
+      font-weight: 300;
+      line-height: 35px;
+    }
+  }
+}

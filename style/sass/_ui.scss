@@ -31,7 +31,12 @@
   }
 
   &_error{
+    border-color: $red!important;
 
+    &::-webkit-input-placeholder {color: $red!important;}
+    &::-moz-placeholder          {color: $red!important;}
+    &:-moz-placeholder           {color: $red!important;}
+    &:-ms-input-placeholder      {color: $red!important;}
   }
 }
 

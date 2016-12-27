@@ -60,7 +60,7 @@
                 <div>
                     <a href="tel:+74951234567" class="header-phone">+7 495 123 45 67</a>
 
-                    <button class="header-btn">Заказать обратный звонок</button>
+                    <button class="header-btn" data-modal=".callback">Заказать обратный звонок</button>
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
                             <li class="nav-link nav-link_small"><a href="">Контакты</a></li>
                         </ul>
                     </nav>
-                    <button class="header-btn">Заказать звонок</button>
+                    <button class="header-btn" data-modal=".callback">Заказать звонок</button>
                 </div>
 
                 <button class="menu-btn" data-toggle="active">
@@ -375,7 +375,7 @@
                         </p>
                     </div>
 
-                    <form action="" method="post" class="form">
+                    <form action="formManager.php" method="post" class="form">
                         <input type="text" class="input" name="phone" placeholder="+7 937 123 45 67" data-required="">
                         <button class="btn">ОТПРАВИТЬ</button>
                     </form>
@@ -427,15 +427,32 @@
         </div>
 
         <div class="callback hidden">
-            <div class="colse" data-btn-type="close"></div>
+            <div class="close" data-btn-type="close"></div>
 
-            <form  data-form-name="modal-form">
-                <h3 class="heading"></h3>
+            <div class="container">
+                <div class="text-block">
+                    <h2 class="heading">
+                        Давайте<br>
+                        пообщаемся!
+                    </h2>
+                    <p class="text">
+                        Введите ваш номер телефона и я перезвоню Вам в течение 15-ти минут
+                    </p>
+                </div>
 
+                <form action="formManager.php" method="post" class="form">
+                    <input type="text" class="input" name="phone" placeholder="+7 937 123 45 67" data-required="">
+                    <button class="btn">ОТПРАВИТЬ</button>
+                </form>
+            </div>
+        </div>
 
-
-                <button class="btn white" data-form-name="modal-form"></button>
-            </form>
+        <div class="thanks hidden">
+            <div class="close" data-btn-type="close"></div>
+            <h2 class="text">
+                Спасибо!<br>
+                С Вами свяжутся в течение 15-ти минут.
+            </h2>
         </div>
     </div>
 </div>

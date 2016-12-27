@@ -1,12 +1,10 @@
 var requared = $('input[data-required]');
 var modal = '.modal';
-var navList = $('.nav-link');
-var scrollDuration = 600;
 var form = $('form');
 
 
 
-//phone.inputmask("+7(999)9999999");
+$('[name="phone"]').inputmask("+7(999)9999999");
 requared.blur(function() {var self = $(this);if($(this).val().length == "") {self.addClass('input_error');setTimeout(function () {self.removeClass('input_error')}, 2000)}});
 requared.focus(function() {$(this).removeClass('input_error');});
 
@@ -42,7 +40,10 @@ form.submit(function(e){
         var data = self.serialize();
         $.ajax({type: type, url: url, data: data,
             success : function(){
-                $('form input').val('');
+                $('form input:not([type="hidden"])').val('');
+                $(modal).removeClass('hidden');
+                $(modal + '>div:not(.layout)').addClass('hidden');
+                $('.modal .thanks').removeClass('hidden');
                 console.log('Success');
             }
         });
@@ -66,16 +67,6 @@ $('[data-btn-type="close"]').on('click', close);
 //// скрипт открывающий форму
 $('[data-modal]').on('click', open);
 
-
-//// плавная прокрутка по странице
-navList.on('click', function(e){
-    $('.menu-btn').toggleClass('active');
-    var position = $(this).index();
-    e.preventDefault();
-    $('body, html').animate({
-        scrollTop: $('.anchor'+ position +'').offset().top
-    },scrollDuration);
-});
 
 var nextBtn = '<button class="slider-btn slider-btn_next"><span><img src="image/ui/arr.png" alt="pic"><img src="image/ui/arr-h.png" alt="pic"></span></button>';
 var prevBtn = '<button class="slider-btn slider-btn_prev"><span><img src="image/ui/arr.png" alt="pic"><img src="image/ui/arr-h.png" alt="pic"></span></button>';
