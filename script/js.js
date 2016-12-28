@@ -68,8 +68,12 @@ $('[data-btn-type="close"]').on('click', close);
 $('[data-modal]').on('click', open);
 
 
-var nextBtn = '<button class="slider-btn slider-btn_next"><span><img src="image/ui/arr.png" alt="pic"><img src="image/ui/arr-h.png" alt="pic"></span></button>';
-var prevBtn = '<button class="slider-btn slider-btn_prev"><span><img src="image/ui/arr.png" alt="pic"><img src="image/ui/arr-h.png" alt="pic"></span></button>';
+//var nextBtn = '<button class="slider-btn slider-btn_next"><span><img src="image/ui/arr.png" alt="pic"><img src="image/ui/arr-h.png" alt="pic"></span></button>';
+//var prevBtn = '<button class="slider-btn slider-btn_prev"><span><img src="image/ui/arr.png" alt="pic"><img src="image/ui/arr-h.png" alt="pic"></span></button>';
+
+
+var nextBtn = '<button class="slider-btn slider-btn_next"><span class="arr-passive"></span><span class="arr-active"></span></button>';
+var prevBtn = '<button class="slider-btn slider-btn_prev"><span class="arr-passive"></span><span class="arr-active"></span></button>';
 
 //// Слайдер
 if($('.slider')){

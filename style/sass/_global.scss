@@ -722,9 +722,13 @@ button{
 
 .gallery-items{
   @include flex-box();
-  @include justify-content(space-between);
+  @include justify-content(start);
   @include flex-wrap(wrap);
   margin: 64px auto 0 auto;
+
+  @media (max-width: $width-md){
+    @include justify-content(space-between);
+  }
 
   @media (max-width: $width-sm){
     @include justify-content(space-around);
@@ -733,47 +737,61 @@ button{
   .btn{
     margin: 52px auto 0 auto;
   }
-}
 
-.gallery-item{
-  max-width: 267px;
-  width: 24.5%;
-  display: block;
-  font-size: 0;
-  margin-bottom: 4px;
-  position: relative;
-  z-index: 1;
-
-  @media (max-width: $width-md){
-    width: calc(50% - 2px);
-    max-width: 100%;
-  }
-
-  @media (max-width: 560px){
-    width: 100%;
-  }
-
-  &:after{
-    content: '';
-    position: absolute;
+  .gallery-item{
+    max-width: 267px;
+    width: 24.4%;
+    display: block;
+    font-size: 0;
+    margin-bottom: 4px;
+    position: relative;
     z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 4px 6px rgba(185, 180, 166, 0.68);
-    opacity: 1;
-    @include transition(0.5s);
-  }
 
-  &:hover{
-    &:after{
-      opacity: 0;
+    @media (max-width: $width-md){
+      width: calc(50% - 2px);
+      max-width: 100%;
     }
-  }
 
-  img{
-    width: 100%;
+    @media (max-width: 560px){
+      width: 100%;
+    }
+
+    &:after{
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 4px 6px rgba(185, 180, 166, 0.68);
+      opacity: 1;
+      @include transition(0.5s);
+    }
+
+    &:hover{
+      &:after{
+        opacity: 0;
+      }
+    }
+
+    img{
+      width: 100%;
+    }
+
+    @media (min-width: $width-md){
+      &:nth-of-type(4n + 2){
+        margin: 0 0 4px 0.8%;
+      }
+
+      &:nth-of-type(4n + 3){
+        margin: 0 0 4px 0.8%;
+      }
+
+      &:nth-of-type(4n + 4){
+        margin: 0 0 4px 0.8%;
+      }
+    }
   }
 }
 

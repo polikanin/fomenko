@@ -71,17 +71,36 @@
   z-index: 1;
   top: calc(50% - 39px);
   @include transition();
-  @include img-hover();
 
   &:hover{
     background-color: rgba(64, 50, 26, 0.8);
+
+    span{
+      &:nth-of-type(2){
+        opacity: 1;
+      }
+    }
   }
 
-  img{
+  span{
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 31px;
+    @include transition();
     @include centered();
 
     &:nth-of-type(2){
       @include centered();
+      opacity: 0;
+    }
+
+    &.arr-passive{
+      background-image: url("../image/ui/arr.png");
+    }
+
+    &.arr-active{
+      background-image: url("../image/ui/arr-h.png");
     }
   }
 
@@ -162,7 +181,7 @@
   @include transition();
 
   &_top{
-    margin: 52px 0 -7px 0;
+    margin: 52px 0 0px 0;
     width: 130px;
 
     @media (max-width: $width-md){
