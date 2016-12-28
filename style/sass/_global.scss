@@ -523,6 +523,60 @@ button{
   }
 }
 
+.default-head{
+  padding: 80px 0 40px 0;
+  margin-bottom: 100px;
+
+  @media (max-width: $width-md){
+    padding: 100px 0 20px 0;
+    margin-bottom: 0;
+  }
+
+  .container{
+    padding: 0 26px;
+
+    @media (max-width: $width-md){
+      padding: 0;
+    }
+  }
+
+  .vertical-text{
+    top: 70px;
+    left: 0;
+    right: auto;
+    transform: rotate(-90deg) translateX(-100%);
+    -webkit-transform: rotate(-90deg) translateX(-100%);
+    transform-origin: 0 0;
+  }
+
+  .heading{
+    margin: 0 0 32px 81px;
+
+    &:before{
+      width: 80px;
+      top: 26px;
+    }
+
+    @media (max-width: $width-md){
+      margin: 0 auto 10px auto;
+      text-align: center;
+
+      &:before{
+        display: none;
+      }
+    }
+  }
+
+  .text{
+    margin: 0 0 0 42px;
+
+    @media (max-width: $width-md){
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
 .default-block{
   padding: 73px 0 67px 0;
 
@@ -735,12 +789,9 @@ button{
   }
 
   .item{
-    margin: 0 12px;
-    width: 50%;
-    max-width: 384px;
+    margin: 0 1%;
+    width: 48%;
     color: $black;
-    @include flex-box();
-    @include justify-content(space-between);
 
     @media (max-width: 850px){
       max-width: 100%;
@@ -750,10 +801,18 @@ button{
 
     &_left{
       text-align: right;
+
+      .preview-pic{
+        margin-left: 32px;
+      }
     }
 
     &_right{
       text-align: left;
+
+      .preview-pic{
+        margin-right: 32px;
+      }
     }
 
     &-heading{
@@ -766,17 +825,17 @@ button{
         display: block;
       }
 
-      @media (max-width: 850px){
-        //display: none;
-        margin: 0 0 15px 0;
+      @media (max-width: $width-md){
+        display: none;
       }
     }
 
     .preview-pic{
-      display: block;
+      display: inline-block;
+      vertical-align: top;
       max-width: 208px;
 
-      @media (max-width: 850px){
+      @media (max-width: $width-md){
         display: none;
       }
     }
@@ -788,6 +847,12 @@ button{
       @media (max-width: $width-xs){
         font-size: 14px;
       }
+    }
+
+    div{
+      display: inline-block;
+      vertical-align: top;
+      max-width: 180px;
     }
   }
 }

@@ -317,6 +317,10 @@
   }
 
   @media (max-width: $width-xs){
+    .mobile-menu{
+      top: calc(100% + 10px);
+    }
+
     padding: 10px 0;
 
     &.header_mobile{
