@@ -2,24 +2,19 @@ var requared = $('input[data-required]');
 var modal = '.modal';
 var form = $('form');
 
-
-
 $('[name="phone"]').inputmask("+7(999)9999999");
 requared.blur(function() {var self = $(this);if($(this).val().length == "") {self.addClass('input_error');setTimeout(function () {self.removeClass('input_error')}, 2000)}});
 requared.focus(function() {$(this).removeClass('input_error');});
-
 
 var close = function () {
     $(modal).addClass('hidden');
     $(modal + '>div:not(.layout)').addClass('hidden');
 };
 
-
 var open = function () {
     $(modal).removeClass('hidden');
     $($(this).data('modal')).removeClass('hidden')
 };
-
 
 form.submit(function(e){
     e.preventDefault();
@@ -67,11 +62,6 @@ $('[data-btn-type="close"]').on('click', close);
 //// скрипт открывающий форму
 $('[data-modal]').on('click', open);
 
-
-//var nextBtn = '<button class="slider-btn slider-btn_next"><span><img src="image/ui/arr.png" alt="pic"><img src="image/ui/arr-h.png" alt="pic"></span></button>';
-//var prevBtn = '<button class="slider-btn slider-btn_prev"><span><img src="image/ui/arr.png" alt="pic"><img src="image/ui/arr-h.png" alt="pic"></span></button>';
-
-
 var nextBtn = '<button class="slider-btn slider-btn_next"><span class="arr-passive"></span><span class="arr-active"></span></button>';
 var prevBtn = '<button class="slider-btn slider-btn_prev"><span class="arr-passive"></span><span class="arr-active"></span></button>';
 
@@ -85,29 +75,15 @@ if($('.slider')){
     });
 }
 
-
-
 //// Галерея на слайдере
 $('.gallery-item').fancybox();
-
-//// Определяет заполнен инпут или нет для анимации
-// $('.input-body .input').on('blur', function(){
-//     var self = $(this);
-//
-//     if(self.val() !== ''){
-//         self.addClass('entered');
-//     }
-//     else{
-//         self.removeClass('entered');
-//     }
-// });
 
 $('[data-toggle]').on('click', function(){
     var data = $(this).data('toggle');
     $(this).toggleClass(data);
 });
 
-$('.play').on('click', function (e) {
+$('.play-video').on('click', function (e) {
     e.preventDefault();
     var videoId = $(this).attr('href');
     var videoTpl = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+ videoId +'?autoplay=1" frameborder="0"  allowfullscreen></iframe>';
@@ -197,7 +173,7 @@ if(audiojs){
             if (!next.length) next = $('ol li').first();
             next.click();
         });
-        $('.audiojs .play').on('click', getTrackName);
+        $('.audiojs .play-pause').on('click', getTrackName);
         $('ol li').on('click', getTrackName);
         $('.play-pause').html('');
     });
