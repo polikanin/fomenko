@@ -151,18 +151,54 @@ $('[data-track]').on('click', function () {
     $('#player source').attr('src', url);
     console.log(url)
 });
+var audiojs;
 
+if(audiojs){
+    $(function() {
+        // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+            trackEnded: function() {
+                var next = $('ol li.playing').next();
+                if (!next.length) next = $('ol li').first();
+                next.addClass('playing').siblings().removeClass('playing');
+                audio.load($('a', next).attr('data-src'));
+                audio.play();
+            }
+        });
 
+        // Load in the first track
+        var audio = a[0];
+        first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
 
+        // Load in a track on click
+        $('ol li').click(function(e) {
+            e.preventDefault();
+            $(this).addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', this).attr('data-src'));
+            audio.play();
+        });
 
+        var getTrackName = function () {
+            var trackName = $('ol .playing a').text();
+            $('.current-track').text(trackName);
+        };
 
-
-
-
-
-
-
-
-
-
-
+        $('.ctrl-btn-prev').on('click', function () {
+            getTrackName();
+            var prev = $('li.playing').prev();
+            if (!prev.length) prev = $('ol li').last();
+            prev.click();
+        });
+        $('.ctrl-btn-next').on('click', function () {
+            getTrackName();
+            var next = $('li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.click();
+        });
+        $('.audiojs .play').on('click', getTrackName);
+        $('ol li').on('click', getTrackName);
+        $('.play-pause').html('');
+    });
+}
