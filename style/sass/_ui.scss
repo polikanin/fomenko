@@ -466,9 +466,13 @@
     display: none;
     z-index: 10;
     margin: 0;
+    max-height: 160px;
+    overflow: auto;
 
     li{
-      @extend .current-track;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 20px;
       margin: 0 0 4px 34px;
       color: white;
       position: relative;
@@ -476,6 +480,27 @@
       padding: 0 34px 0 16px;
       cursor: pointer;
       @include transition();
+
+      &:before,
+      &:after{
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-repeat: no-repeat;
+        background-position: center;
+        @include transition();
+      }
+
+      &:before{
+        opacity: 1;
+      }
+
+      &:after{
+        opacity: 0;
+      }
 
       &:before{
         background-image: url("../image/ui/play-status-white.svg");
