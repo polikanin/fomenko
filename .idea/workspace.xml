@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3303fe92-a06b-4118-88f4-ae7c8ba7739f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/.sass-cache/69b69a73ad7356b625e717bf3089e9f440ad912d/_global.scssc" afterPath="$PROJECT_DIR$/style/.sass-cache/69b69a73ad7356b625e717bf3089e9f440ad912d/_global.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/.sass-cache/69b69a73ad7356b625e717bf3089e9f440ad912d/_ui.scssc" afterPath="$PROJECT_DIR$/style/.sass-cache/69b69a73ad7356b625e717bf3089e9f440ad912d/_ui.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/sass/_global.scss" afterPath="$PROJECT_DIR$/style/sass/_global.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/sass/_ui.scss" afterPath="$PROJECT_DIR$/style/sass/_ui.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/style.css" afterPath="$PROJECT_DIR$/style/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/style.css.map" afterPath="$PROJECT_DIR$/style/style.css.map" />
     </list>
     <ignored path="fomenko.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,8 +52,8 @@
       <file leaf-file-name="_ui.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/style/sass/_ui.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="468" column="19" selection-start-line="468" selection-start-column="19" selection-end-line="468" selection-end-column="19" />
+            <state relative-caret-position="429">
+              <caret line="362" column="20" selection-start-line="362" selection-start-column="20" selection-end-line="362" selection-end-column="20" />
               <folding>
                 <element signature="e#17#1002#0" expanded="false" />
                 <element signature="e#1008#1355#0" expanded="false" />
@@ -71,10 +65,9 @@
                 <element signature="e#5170#5252#0" expanded="false" />
                 <element signature="e#5267#5900#0" expanded="false" />
                 <element signature="e#5915#6005#0" expanded="false" />
-                <element signature="e#6027#6795#0" expanded="false" />
-                <element signature="e#6930#7273#0" expanded="false" />
-                <element signature="e#7291#7895#0" expanded="false" />
-                <marker date="1483053045000" expanded="false" signature="6836:6917" ph="{...}" />
+                <element signature="e#6952#7295#0" expanded="false" />
+                <element signature="e#7313#7917#0" expanded="false" />
+                <marker date="1483053302000" expanded="false" signature="6858:6939" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -446,12 +439,12 @@
       <workItem from="1482609740570" duration="14298000" />
       <workItem from="1482800443273" duration="25000" />
       <workItem from="1482801374072" duration="14103000" />
-      <workItem from="1483000277507" duration="15291000" />
+      <workItem from="1483000277507" duration="15399000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94784000" />
+    <option name="totallyTimeSpent" value="94892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -506,10 +499,9 @@
             <element signature="e#5170#5252#0" expanded="false" />
             <element signature="e#5267#5900#0" expanded="false" />
             <element signature="e#5915#6005#0" expanded="false" />
-            <element signature="e#6027#6795#0" expanded="false" />
-            <element signature="e#6930#7273#0" expanded="false" />
-            <element signature="e#7291#7895#0" expanded="false" />
-            <marker date="1483053045000" expanded="false" signature="6836:6917" ph="{...}" />
+            <element signature="e#6952#7295#0" expanded="false" />
+            <element signature="e#7313#7917#0" expanded="false" />
+            <marker date="1483053302000" expanded="false" signature="6858:6939" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -557,10 +549,9 @@
             <element signature="e#5170#5252#0" expanded="false" />
             <element signature="e#5267#5900#0" expanded="false" />
             <element signature="e#5915#6005#0" expanded="false" />
-            <element signature="e#6027#6795#0" expanded="false" />
-            <element signature="e#6930#7273#0" expanded="false" />
-            <element signature="e#7291#7895#0" expanded="false" />
-            <marker date="1483053045000" expanded="false" signature="6836:6917" ph="{...}" />
+            <element signature="e#6952#7295#0" expanded="false" />
+            <element signature="e#7313#7917#0" expanded="false" />
+            <marker date="1483053302000" expanded="false" signature="6858:6939" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -669,10 +660,9 @@
             <element signature="e#5170#5252#0" expanded="false" />
             <element signature="e#5267#5900#0" expanded="false" />
             <element signature="e#5915#6005#0" expanded="false" />
-            <element signature="e#6027#6795#0" expanded="false" />
-            <element signature="e#6930#7273#0" expanded="false" />
-            <element signature="e#7291#7895#0" expanded="false" />
-            <marker date="1483053045000" expanded="false" signature="6836:6917" ph="{...}" />
+            <element signature="e#6952#7295#0" expanded="false" />
+            <element signature="e#7313#7917#0" expanded="false" />
+            <marker date="1483053302000" expanded="false" signature="6858:6939" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1079,8 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style/sass/_ui.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="468" column="19" selection-start-line="468" selection-start-column="19" selection-end-line="468" selection-end-column="19" />
+        <state relative-caret-position="429">
+          <caret line="362" column="20" selection-start-line="362" selection-start-column="20" selection-end-line="362" selection-end-column="20" />
           <folding>
             <element signature="e#17#1002#0" expanded="false" />
             <element signature="e#1008#1355#0" expanded="false" />
@@ -1092,10 +1082,9 @@
             <element signature="e#5170#5252#0" expanded="false" />
             <element signature="e#5267#5900#0" expanded="false" />
             <element signature="e#5915#6005#0" expanded="false" />
-            <element signature="e#6027#6795#0" expanded="false" />
-            <element signature="e#6930#7273#0" expanded="false" />
-            <element signature="e#7291#7895#0" expanded="false" />
-            <marker date="1483053045000" expanded="false" signature="6836:6917" ph="{...}" />
+            <element signature="e#6952#7295#0" expanded="false" />
+            <element signature="e#7313#7917#0" expanded="false" />
+            <marker date="1483053302000" expanded="false" signature="6858:6939" ph="{...}" />
           </folding>
         </state>
       </provider>
