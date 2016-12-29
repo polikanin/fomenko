@@ -145,7 +145,12 @@ if($('.gallery-preview-block')){
 }
 
 
+$('[data-track]').on('click', function () {
+    var url = $(this).data('track');
 
+    $('#player source').attr('src', url);
+    console.log(url)
+});
 
 
 

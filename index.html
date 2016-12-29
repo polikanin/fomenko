@@ -210,18 +210,45 @@
                             Кирилла Фоменко
                         </p>
 
+                        <!--<div id="player">-->
+                            <!--<audio preload="auto" controls>-->
+                                <!--<source src="1.mp3" title='song №1'/>-->
+                            <!--</audio>-->
+                            <!--<p class="current-track">Девочка, девушка, женщина</p>-->
+                            <!--<button class="ctrl-btn ctrl-btn-next"></button>-->
+                            <!--<button class="ctrl-btn ctrl-btn-prev"></button>-->
+                            <!--<button class="play-list-btn" data-toggle="active">-->
+                                <!--<span></span>-->
+                                <!--<span></span>-->
+                                <!--<span></span>-->
+                            <!--</button>-->
+                            <!--<ul class="play-list">-->
+                                <!--<li>-->
+                                    <!--<span class="track-name" data-track="1.mp3">Песня 1</span>-->
+                                    <!--<span class="track-duration">3:21</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span class="track-name" data-track="2.mp3">Песня 2</span>-->
+                                    <!--<span class="track-duration">3:21</span>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+
                         <div id="player">
-                            <audio preload="auto" controls>
-                                <source src="1.mp3" title='song №1'/>
-                            </audio>
-                            <p class="current-track">Девочка, девушка, женщина</p>
-                            <button class="ctrl-btn ctrl-btn-next"></button>
-                            <button class="ctrl-btn ctrl-btn-prev"></button>
+                            <audio></audio>
                             <button class="play-list-btn" data-toggle="active">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </button>
+                            <p class="current-track"></p>
+                            <button class="ctrl-btn ctrl-btn-next"></button>
+                            <button class="ctrl-btn ctrl-btn-prev"></button>
+                            <ol>
+                                <li><a href="#" data-src="1.mp3" data-track-duration="4:05">Девочка, девушка, женщинаДевочка, девушка, женщина</a></li>
+                                <li><a href="#" data-src="2.mp3" data-track-duration="4:05">Cute</a></li>
+                            </ol>
+
                         </div>
                     </div>
                 </div>
@@ -470,15 +497,57 @@
 <!-- SCRIPT -->
 <script src="script/jquery.js"></script>
 <script src="script/jquery.inputmask.js"></script>
-<script src="script/audioplayer.js"></script>
+<script src="script/audio.min.js"></script>
 <script src="script/slick-1.5.0/slick/slick.min.js"></script>
 <script src="script/fancyBox/source/jquery.fancybox.js"></script>
 <script src="script/js.js"></script>
 
 <script>
-    $( function()
-    {
-        $( 'audio' ).audioPlayer();
+    $(function() {
+        // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+            trackEnded: function() {
+                var next = $('ol li.playing').next();
+                if (!next.length) next = $('ol li').first();
+                next.addClass('playing').siblings().removeClass('playing');
+                audio.load($('a', next).attr('data-src'));
+                audio.play();
+            }
+        });
+
+        // Load in the first track
+        var audio = a[0];
+        first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
+
+        // Load in a track on click
+        $('ol li').click(function(e) {
+            e.preventDefault();
+            $(this).addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', this).attr('data-src'));
+            audio.play();
+        });
+
+        var getTrackName = function () {
+            var trackName = $('ol .playing a').text();
+            $('.current-track').text(trackName);
+        };
+
+        $('.ctrl-btn-prev').on('click', function () {
+            getTrackName();
+            var prev = $('li.playing').prev();
+            if (!prev.length) prev = $('ol li').last();
+            prev.click();
+        });
+        $('.ctrl-btn-next').on('click', function () {
+            getTrackName();
+            var next = $('li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.click();
+        });
+        $('.audiojs .play').on('click', getTrackName);
+        $('ol li').on('click', getTrackName);
     });
 </script>
 

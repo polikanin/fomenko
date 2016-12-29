@@ -266,7 +266,7 @@
     display: block;
   }
 
-  .audioplayer{
+  .audiojs{
     width: 232px;
     height: 48px;
     border: 1px solid #40321a;
@@ -274,12 +274,25 @@
     margin: 0 auto 0 auto;
     position: relative;
     z-index: 1;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+    overflow: visible;
 
-    &>div{
-      //position: absolute;
+
+
+    &:after{
+      content: '';
+      position: absolute;
+      top: 7px;
+      right: 81px;
+      width: 1px;
+      height: 32px;
+      background-color: $black;
+      z-index: 1;
     }
 
-    &-playpause{
+    .play-pause{
       background-repeat: no-repeat;
       background-position: center;
       width: 18px;
@@ -289,9 +302,14 @@
       position: absolute;
       top: 13px;
       left: 66px;
+      padding: 0;
+      float: none;
+      margin: 0;
+      background-image: url("../image/ui/player-play.svg");
+      border: none;
     }
 
-    &-time{
+    .time{
       display: none;
       &-current{
 
@@ -302,7 +320,7 @@
       }
     }
 
-    &-bar{
+    .scrubber{
       height: 3px;
       background-color: #ccc39b;
       position: absolute;
@@ -311,33 +329,33 @@
       width: 100%;
       left: 1px;
       cursor: pointer;
+      border: none;
+      margin: 0;
 
-      &-played{
+      .progress{
         position: absolute;
         top: 0;
         left: 0;
         height: 100%;
         background-color: #918862;
         z-index: 4;
+        background-image: none;
       }
 
-      &-loaded{
-        //background-color: #918862;
-      }
-    }
-
-    &-volume{
-      display: none;
-    }
-
-    &-stopped{
-      .audioplayer-playpause{
-        background-image: url("../image/ui/player-play.svg");
+      .loaded{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #918862;
+        z-index: 4;
+        background-image: none;
+        display: none;
       }
     }
 
-    &-playing{
-      .audioplayer-playpause{
+    &.playing{
+      .play-pause{
         background-image: url("../image/ui/pause.svg");
       }
     }
@@ -348,7 +366,51 @@
     font-weight: 300;
     line-height: 20px;
     color: $brown;
-    margin: 27px 0 0 50px;
+    margin: 27px 0 0 34px;
+    position: relative;
+    z-index: 1;
+    padding-left: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 34px;
+
+    &:before,
+    &:after{
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background-repeat: no-repeat;
+      background-position: center;
+      @include transition();
+    }
+
+    &:before{
+      background-image: url("../image/ui/play-status.svg");
+      opacity: 0;
+    }
+
+    &:after{
+      background-image: url("../image/ui/pause-status.svg");
+      opacity: 1;
+    }
+
+    &:empty{
+      display: none;
+    }
+  }
+
+  .audioplayer-playing ~ .current-track{
+    &:before{
+      opacity: 0;
+    }
+
+    &:after{
+      opacity: 1;
+    }
   }
 
   .ctrl-btn{
@@ -404,6 +466,103 @@
           transform: translateY(-6px) rotate(-45deg);
         }
       }
+    }
+  }
+
+  ol{
+    background-color: #918862;
+    box-shadow: 0 4px 10px rgba(185, 180, 166, 0.56);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    display: none;
+    z-index: 10;
+    margin: 0;
+
+    li{
+      @extend .current-track;
+      margin: 0 0 4px 34px;
+      color: white;
+      position: relative;
+      z-index: 1;
+      padding: 0 34px 0 16px;
+      cursor: pointer;
+      @include transition();
+
+      &:before{
+        background-image: url("../image/ui/play-status-white.svg");
+      }
+
+      &:after{
+        background-image: url("../image/ui/play-status-h.svg");
+      }
+
+      &:hover{
+        color: $red;
+
+        &:before{
+          opacity: 0;
+        }
+
+        &:after{
+          opacity: 1;
+          background-image: url("../image/ui/play-status-h.svg");
+        }
+      }
+
+      a{
+        position: relative;
+        display: block;
+        padding-right: 35px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        z-index: 1;
+
+        &:after{
+          content: attr(data-track-duration);
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  .active ~ ol{
+    display: block;
+  }
+
+  .playing ~ ol{
+    li{
+      &.playing{
+        &:before{
+          opacity: 0;
+        }
+
+        &:after{
+          opacity: 1;
+          background-image: url("../image/ui/pause-status-white.svg");
+        }
+
+        &:hover{
+          &:after{
+            background-image: url("../image/ui/pause-status-h.svg");
+          }
+        }
+      }
+    }
+  }
+
+  .playing ~ .current-track{
+    &:before{
+      opacity: 1;
+    }
+
+    &:after{
+      opacity: 0;
     }
   }
 }
