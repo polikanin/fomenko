@@ -324,7 +324,7 @@ button{
       z-index: 1;
     }
 
-    @media (max-width: $width-lg){
+    @media (max-width: $width-lg-min){
       display: none;
     }
 
