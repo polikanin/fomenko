@@ -180,6 +180,7 @@ button{
 
 .first-screen{
   padding: 52px 0 43px 0;
+  overflow: hidden;
 
   @media (max-width: $width-md){
     padding: 120px 0 43px 0;
@@ -244,6 +245,9 @@ button{
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
     }
 
     &:before{
@@ -296,6 +300,45 @@ button{
           border: 1px solid white;
         }
       }
+    }
+  }
+
+  .video-bg-wrap{
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -10;
+
+    .video-bg{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      min-width: 50%;
+      min-height: 50%;
+      overflow-x: hidden;
+      z-index: 1;
+    }
+
+    @media (max-width: $width-lg){
+      display: none;
+    }
+
+    &:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../image/ui/video-bg.png");
+      background-repeat: repeat;
+      z-index: 5;
+      pointer-events: none;
     }
   }
 }
@@ -758,9 +801,26 @@ button{
       @include transition(0.5s);
     }
 
+    &:before{
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.2);
+      opacity: 0;
+      @include transition();
+    }
+
     &:hover{
       &:after{
         opacity: 0;
+      }
+
+      &:before{
+        opacity: 1;
       }
     }
 
@@ -887,9 +947,11 @@ button{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #594628;
+    background-image: url("../image/ui/video-bg.png");
+    background-repeat: repeat;
     z-index: 1;
     opacity: 0.36;
+    pointer-events: none;
     @include transition();
   }
 
@@ -923,14 +985,46 @@ button{
 
   &.active{
     .video-block{
-      z-index: 5;
+      z-index: 6;
       opacity: 1;
+    }
+
+    .play{
+      opacity: 0;
+      pointer-events: none;
     }
   }
 
   &:hover{
     &:before{
-      opacity: 0;
+      //opacity: 0;
     }
+  }
+}
+
+
+
+
+
+
+
+
+.animated-circle{
+  @include centered();
+}
+
+.preloader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  background-color: #eae7e2;
+  @include transition();
+
+  &.preloaded{
+    opacity: 0;
+    pointer-events: none;
   }
 }
