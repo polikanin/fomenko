@@ -15,6 +15,10 @@
                 background-image: url('image/index/slider/1.png');
             }
         }
+
+        .volume{
+            display: block!important;
+        }
     </style>
 
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"/>
@@ -141,7 +145,7 @@
 
         <section class="first-screen">
             <div class="video-bg-wrap">
-                <video autoplay loop class="video-bg">
+                <video autoplay loop class="video-bg" id="video">
                     <source src="video-fhd.mp4" type="video/mp4">
                     <source src="video-fhd.webm" type="video/webm">
                 </video>
@@ -171,6 +175,11 @@
                     Фоменко
                 </h1>
                 <p class="subtitle">Ведущий и вокалист в Москве и зарубежом</p>
+
+                <button class="volume" data-toggle="active">
+                    <img src="image/ui/on.png" alt="pic">
+                    <img src="image/ui/off.png" alt="pic">
+                </button>
             </div>
         </section>
 

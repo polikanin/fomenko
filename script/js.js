@@ -190,4 +190,17 @@ $(document).ready(function () {
     if(isMobile){
         $('.video-bg-wrap').remove();
     }
+
+    var video = document.getElementById("video");
+
+    $('.volume').on('click', function () {
+        if(video.volume === 1){
+            video.volume = 0;
+        }
+        else{
+            video.volume = 1;
+        }
+        console.log(video.volume)
+    });
+
 });
