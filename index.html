@@ -10,15 +10,21 @@
     <link type="image/x-icon" href="favicon.ico" rel="shortcut icon">
 
     <style>
+        .volume{
+            display: block!important;
+        }
+
         @media (max-width: 1080px){
             .first-screen{
                 background-image: url('image/index/slider/1.png');
             }
+
+            .volume{
+                display: none!important;
+            }
         }
 
-        .volume{
-            display: block!important;
-        }
+
     </style>
 
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"/>
@@ -134,8 +140,9 @@
                         <li class="nav-link nav-link_small"><a href="">Почитать</a></li>
                         <li class="nav-link nav-link_small"><a href="">Контакты</a></li>
                     </ul>
+
+                    <a href="tel:+74951234567" class="header-phone">+7 495 123 45 67</a>
                 </nav>
-                <a href="tel:+74951234567" class="header-phone">+7 495 123 45 67</a>
             </div>
         </div>
     </header>
@@ -387,7 +394,6 @@
                     <a class="gallery-item" rel="group1" href="image/gallery/1.png">
                         <img src="image/gallery/4.png" alt="pic">
                     </a>
-
                     <button class="btn btn_red">ПОКАЗАТЬ ЕЩЕ</button>
                 </div>
             </div>

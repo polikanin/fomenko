@@ -74,7 +74,11 @@ $(document).ready(function () {
             slidesToShow: 1,
             dots: true,
             prevArrow: prevBtn,
-            nextArrow: nextBtn
+            nextArrow: nextBtn,
+            autoplay: true,
+            autoplaySpeed: 4000,
+            speed: 1000,
+            focusOnHover: false
         });
     }
 
@@ -131,7 +135,7 @@ $(document).ready(function () {
         console.log(url)
     });
 
-    if(audiojs){
+    if(window.audiojs){
         $(function() {
             // Setup the player to autoplay the next track
             var a = audiojs.createAll({
@@ -202,5 +206,20 @@ $(document).ready(function () {
         }
         console.log(video.volume)
     });
+
+    if($('.parallax-bg').length > 0){
+        $(window).on('scroll', function () {
+            var winHeight = $(window).height();
+            var scroll = $(window).scrollTop() + winHeight;
+            var block = $('.banner').offset().top;
+            var transform = block - scroll;
+
+            if(scroll > block){
+                $('.parallax-bg img').css({
+                    transform: 'translateY('+ transform/8 +'px)'
+                });
+            }
+        });
+    }
 
 });

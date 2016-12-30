@@ -49,7 +49,7 @@ header, section, footer{
   min-width: $width-min;
   margin: 0 auto;
   box-sizing: border-box;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -348,23 +348,30 @@ button{
     right: 0;
     pointer-events: auto;
     display: none;
+    width: 64px;
+    height: 64px;
+    z-index: 1;
+    padding: 0;
 
     img{
+      @include transition(0.5s);
+
       &:nth-of-type(1){
-        display: block;
+
       }
       &:nth-of-type(2){
-        display: none;
+        @include centered();
+        opacity: 0;
       }
     }
 
     &.active{
       img{
         &:nth-of-type(1){
-          display: none;
+          opacity: 0;
         }
         &:nth-of-type(2){
-          display: block;
+          opacity: 1;
         }
       }
     }
@@ -978,7 +985,6 @@ button{
     background-image: url("../image/ui/video-bg.png");
     background-repeat: repeat;
     z-index: 1;
-    opacity: 0.36;
     pointer-events: none;
     @include transition();
   }
@@ -1032,11 +1038,6 @@ button{
 
 
 
-
-
-
-
-
 .animated-circle{
   @include centered();
 }
@@ -1054,5 +1055,26 @@ button{
   &.preloaded{
     opacity: 0;
     pointer-events: none;
+  }
+}
+
+.parallax-bg{
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+
+  img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+    overflow-x: hidden;
+    will-change: transform;
   }
 }

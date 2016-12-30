@@ -52,8 +52,8 @@
   }
 
   .banner{
-    background-image: url("../image/wedding/banner.png");
     padding: 314px 0 65px 0;
+    overflow: hidden;
 
     &:before{
       content: '';

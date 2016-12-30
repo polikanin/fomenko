@@ -132,6 +132,10 @@
         color: $red;
         display: block;
         margin-bottom: 18px;
+
+        &:hover{
+          text-decoration: underline;
+        }
       }
     }
 
