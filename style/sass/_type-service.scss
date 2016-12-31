@@ -1,16 +1,12 @@
 .type-service{
   .about{
     .heading{
-      &:after{
-        content: '';
+      .icon{
         display: block;
-        width: 59px;
-        height: 37px;
-        background-repeat: no-repeat;
-        background-image: url("../image/wedding/heart.png");
         position: absolute;
         top: 0;
         right: 0;
+        max-width: 62px;
       }
     }
   }
