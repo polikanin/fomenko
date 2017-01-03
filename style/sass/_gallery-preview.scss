@@ -84,6 +84,8 @@
       .btn{
         width: 184px;
         height: 56px;
+        line-height: 56px;
+        text-align: center;
 
         @media (max-width: $width-md){
           margin: 0 auto;
