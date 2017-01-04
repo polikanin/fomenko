@@ -179,7 +179,7 @@
     .header-btn{
       padding-left: 25px;
       font-size: 13px;
-      margin: 6px 0 0 0;
+      margin: 10px 0 0 0;
       color: $red;
 
       &:before{
@@ -269,8 +269,10 @@
     }
   }
 
-  .active + .mobile-menu{
-    display: block;
+  @media (max-width: $width-lg-min){
+    .active + .mobile-menu{
+      display: block;
+    }
   }
 
   @media (max-width: $width-lg-min){
@@ -313,11 +315,6 @@
 
       .menu-btn{
         right: 10px;
-      }
-
-      .header-phone{
-        font-size: 14px;
-        right: 58px;
       }
     }
   }
