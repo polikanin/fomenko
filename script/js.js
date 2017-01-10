@@ -119,8 +119,6 @@ $(document).ready(function () {
             dataType: 'jsonp',
             success: function(data){
                 var video = data[0];
-                console.log(video.thumbnail_medium)
-
                 self.css({
                     backgroundImage: 'url('+ video.thumbnail_large +')'
                 });
@@ -152,12 +150,10 @@ $(document).ready(function () {
 
     $('[data-track]').on('click', function () {
         var url = $(this).data('track');
-
         $('#player source').attr('src', url);
-        console.log(url)
     });
 
-    if(window.audiojs){
+    if($('#player').length > 0){
         $(function() {
             // Setup the player to autoplay the next track
             var a = audiojs.createAll({
@@ -218,7 +214,10 @@ $(document).ready(function () {
     }
 
     var video = document.getElementById("video");
-    video.volume = 0;
+
+    if(video !== null){
+        video.volume = 0;
+    }
     $('.volume').on('click', function () {
         if(video.volume === 1){
             video.volume = 0;
