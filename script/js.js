@@ -157,7 +157,7 @@ $(document).ready(function () {
         console.log(url)
     });
 
-    if($('#player').attr('id')){
+    if(window.audiojs){
         $(function() {
             // Setup the player to autoplay the next track
             var a = audiojs.createAll({
