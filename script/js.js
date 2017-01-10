@@ -93,21 +93,11 @@ $(document).ready(function () {
     $('.play').on('click', function (e) {
         e.preventDefault();
         var videoId = $(this).attr('href');
-        //var videoTpl = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+ videoId +'?autoplay=1" frameborder="0"  allowfullscreen></iframe>';
-
-        var videoTpl = '<iframe src="https://player.vimeo.com/video/'+ videoId +'?color=d4d4d4&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-
+        var videoTpl = '<iframe src="https://player.vimeo.com/video/'+ videoId +'?autoplay=1&color=d4d4d4&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
         var parent = $(this).parent();
         parent.addClass('active');
         parent.find('.video-block').html(videoTpl);
     });
-
-    // $('.video').each(function () {
-    //
-    //     $(this).css({
-    //         backgroundImage: 'url(//img.youtube.com/vi/'+ href +'/hqdefault.jpg)'
-    //     });
-    // });
 
     $('.video').each(function(){
         var href = $(this).find('.play').attr('href');
@@ -155,7 +145,6 @@ $(document).ready(function () {
 
     if($('#player').length > 0){
         $(function() {
-            // Setup the player to autoplay the next track
             var a = audiojs.createAll({
                 trackEnded: function() {
                     var next = $('ol li.playing').next();
