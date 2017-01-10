@@ -93,16 +93,38 @@ $(document).ready(function () {
     $('.play').on('click', function (e) {
         e.preventDefault();
         var videoId = $(this).attr('href');
-        var videoTpl = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+ videoId +'?autoplay=1" frameborder="0"  allowfullscreen></iframe>';
+        //var videoTpl = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+ videoId +'?autoplay=1" frameborder="0"  allowfullscreen></iframe>';
+
+        var videoTpl = '<iframe src="https://player.vimeo.com/video/'+ videoId +'?color=d4d4d4&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+
         var parent = $(this).parent();
         parent.addClass('active');
         parent.find('.video-block').html(videoTpl);
     });
 
-    $('.video').each(function () {
+    // $('.video').each(function () {
+    //
+    //     $(this).css({
+    //         backgroundImage: 'url(//img.youtube.com/vi/'+ href +'/hqdefault.jpg)'
+    //     });
+    // });
+
+    $('.video').each(function(){
         var href = $(this).find('.play').attr('href');
-        var img = $(this).css({
-            backgroundImage: 'url(//img.youtube.com/vi/'+ href +'/hqdefault.jpg)'
+        var self = $(this);
+        $.ajax({
+            type:'GET',
+            url: 'http://vimeo.com/api/v2/video/' + href  + '.json',
+            jsonp: 'callback',
+            dataType: 'jsonp',
+            success: function(data){
+                var video = data[0];
+                console.log(video.thumbnail_medium)
+
+                self.css({
+                    backgroundImage: 'url('+ video.thumbnail_large +')'
+                });
+            }
         });
     });
 
@@ -196,7 +218,7 @@ $(document).ready(function () {
     }
 
     var video = document.getElementById("video");
-
+    video.volume = 0;
     $('.volume').on('click', function () {
         if(video.volume === 1){
             video.volume = 0;
@@ -204,7 +226,6 @@ $(document).ready(function () {
         else{
             video.volume = 1;
         }
-        console.log(video.volume)
     });
 
     if($('.parallax-bg').length > 0){
